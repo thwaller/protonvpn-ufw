@@ -1,0 +1,47 @@
+function killswitch() {
+  if [[ ! -f "$(get_protonvpn_cli_home)/.enable_killswitch" ]]; then
+    return
+  fi
+
+  if [[ $1 == "backup_rules" ]]; then
+    if [[ $(detect_platform_type) == "linux" ]]; then
+      iptables-save > "$(get_protonvpn_cli_home)/.iptables.save"
+    elif [[ $(detect_platform_type) == "macos" ]]; then
+      # Todo: logic
+      false
+    fi
+  fi
+
+  if [[ $1 == "enable" ]]; then
+    if [[ $(detect_platform_type) == "linux" ]]; then
+      vpn_port=$(get_openvpn_config_info | cut -d "@" -f2)
+      vpn_type=$(get_openvpn_config_info | cut -d "@" -f3)
+      vpn_device_name=$(get_openvpn_config_info | cut -d "@" -f4)
+      iptables -F
+      iptables -P INPUT DROP
+      iptables -P OUTPUT DROP
+      iptables -P FORWARD DROP
+
+      iptables -A OUTPUT -o "$vpn_device_name" -j ACCEPT
+      iptables -A INPUT -i "$vpn_device_name" -j ACCEPT
+      iptables -A INPUT -i "$vpn_device_name" -m state --state ESTABLISHED,RELATED -j ACCEPT
+      iptables -A OUTPUT -o "$vpn_device_name" -m state --state ESTABLISHED,RELATED -j ACCEPT
+      iptables -A OUTPUT -p "$vpn_type" -m "$vpn_type" --dport "$vpn_port" -j ACCEPT
+      iptables -A INPUT -p "$vpn_type" -m "$vpn_type" --sport "$vpn_port" -j ACCEPT
+
+    elif [[ $(detect_platform_type) == "macos" ]]; then
+     # Todo: logic
+     false
+    fi
+  fi
+
+  if [[ $1 == "disable" ]]; then
+    if [[ $(detect_platform_type) == "linux" ]]; then
+      iptables -F
+      iptables-restore < "$(get_protonvpn_cli_home)/.iptables.save"
+    elif [[ $(detect_platform_type) == "macos" ]]; then
+      # Todo: logic
+      false
+    fi
+  fi
+}

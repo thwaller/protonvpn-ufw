@@ -15,7 +15,7 @@ This should also be valid for users who wish to use the VPN connections for Open
 
 forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
 
-### ProtonVPN Enter and Exit IPs
+### ProtonVPN Enter/Exit IPs
 1. US-FREE#1 : 108.59.0.37
 2. US-FREE#2 : 108.59.0.40
 3. JP-FREE#1 : 185.161.200.10
@@ -25,10 +25,13 @@ forcevpn script file should be placed in your local bin and files within /etc/ c
 7. NL-FREE#2 : 217.23.3.91
 
 ### To do
-Ideally this will be a more comprehensive script. Until then, the rules need to be set and tested
+1. Ideally this will be a more comprehensive script. Until then, the rules need to be set and tested
+2. Need to further restrict by interface and port?
+3. Alternatives to using ufw
+  a. shorewall
+  b. iptables
 
-### To Upload
-Edits are needed to local config files, to be uploaded once final
+### Local Files of Interest
 1. /etc/ufw/sysctl.conf
 2. /etc/default/ufw
 3. /etc/sysctl.conf

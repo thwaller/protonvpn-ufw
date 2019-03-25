@@ -13,6 +13,8 @@ Intent is for the user to use the script protonvpn-cli script and incorporate a 
 
 This should also be valid for users who wish to use the VPN connections for OpenVPN via network-manager.
 
+forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
+
 ### ProtonVPN IPs
 1. US-FREE#1 : 108.59.0.37
 2. US-FREE#2 : 108.59.0.40

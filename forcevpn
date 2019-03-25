@@ -1,0 +1,14 @@
+sudo ufw --force reset
+sudo ufw default deny outgoing
+sudo ufw default deny incoming
+sudo ufw allow from 192.168.1.0/24
+sudo ufw allow out from any to 108.59.0.37
+sudo ufw allow out from any to 108.59.0.40
+sudo ufw allow out from any to 185.161.200.10
+sudo ufw allow out from any to 185.242.4.203
+sudo ufw allow out from any to 193.148.16.227
+sudo ufw allow out from any to 217.23.3.171
+sudo ufw allow out from any to 217.23.3.91
+sudo ufw allow out on tun0 from any to any
+sudo ufw allow out on tun1 from any to any # This should not happen, but it does
+sudo ufw enable

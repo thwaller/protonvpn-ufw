@@ -1,11 +1,8 @@
-# protonvpn-ufw
+# vpn-control
 
-Script to enhance security whilst using ProtonVPN. Can be adapted to any VPN service, but this will use the available servers in accordance to the ProtonVPN.
+Script to enhance security (aka killswitch) whilst using ProtonVPN on Ubuntu 18.04.2 LTS. Should work on most Linux systems and most VPN services.
 
-This configuration is built and tested / being tested on Ubuntu 18.04.2 LTS.
-
-The Linux for ProtonVPN can be referenced here: https://github.com/ProtonVPN.
-Intent is for the user to use the script protonvpn-cli script and incorporate a ufw profile to harden the connection. Using an openVPN setting in network-manager should also work.
+The Linux for ProtonVPN can be referenced here: https://github.com/ProtonVPN. Intent is for the user to use the script protonvpn-cli script and incorporate a ufw profile to harden the connection. Using an OpenVPN setting in network-manager should also work.
 1. IPv6 totally disabled to prevent leaks
 2. Local traffic allowed
 3. All traffic to WAN forced through VPN or blocked
@@ -24,11 +21,15 @@ Intent is for the user to use the script protonvpn-cli script and incorporate a 
 6. NL-FREE#1 : 217.23.3.171
 7. NL-FREE#2 : 217.23.3.91
 
+### ProtonVPN considerations
+1. protonvpn-cli has a killswitch function, although currently disabled.
+2. protonvpn-cli has an ipv6 disabling function. Disabling ipv6 locally external of the script may not be necessary or desired.
+
 ### To do
 1. Ideally this will be a more comprehensive script. Until then, the rules need to be set and tested
-2. Need to further restrict by interface and port?
+2. Need to further restrict by interface (wlan, eth, etc), protocol and port?
 
-### Local Files of Interest
+### Local files of interest for disabling IPv6
 1. /etc/ufw/sysctl.conf
 2. /etc/default/ufw
 3. /etc/sysctl.conf

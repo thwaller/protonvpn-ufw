@@ -13,7 +13,7 @@ Intent is for the user to use the script protonvpn-cli script and incorporate a 
 
 ### Parts
 1. /ufw/ - Solution using ufw gui - forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
-2. /proton/ - The function in ProtonVPN's cli script for the killswitch, which is currently disabled in the script.
+2. /proton/ - The function in ProtonVPN's cli script for the killswitch, which is currently disabled in the script. This can be used as a guide, but also needs consideration should Proton enable it within the cli script.
 
 ### ProtonVPN Enter/Exit IPs
 1. US-FREE#1 : 108.59.0.37

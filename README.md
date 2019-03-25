@@ -2,12 +2,16 @@
 
 Script to enhance security whilst using ProtonVPN free plan. Can be adapted to any VPN service, but this will use the available servers in accordance to the ProtonVPN free plan.
 
+This configuration is built and tested / being tested on Ubuntu 18.04.2 LTS.
+
 The Linux for ProtonVPN can be referenced here: https://github.com/ProtonVPN
 Intent is for the user to use the script protonvpn-cli script and incorporate a ufw profile to harden the connection.
 1. IPv6 totally disabled to prevent leaks
 2. Local traffic allowed
 3. All traffic to WAN forced through VPN or blocked
 4. Default is all in and out denied
+
+This should also be valid for users who wish to use the VPN connections for OpenVPN via network-manager.
 
 ### ProtonVPN IPs
 1. US-FREE#1 : 108.59.0.37

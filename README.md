@@ -10,10 +10,10 @@ Intent is for the user to use the script protonvpn-cli script and incorporate a 
 4. Default is all in and out denied
 
 ### ProtonVPN
-# US-FREE#1 : 108.59.0.37
-# US-FREE#2 : 108.59.0.40
-# JP-FREE#1 : 185.161.200.10
-# JP-FREE#2 : 185.242.4.203
-# JP-FREE#3 : 193.148.16.227
-# NL-FREE#1 : 217.23.3.171
-# NL-FREE#2 : 217.23.3.91
+1. US-FREE#1 : 108.59.0.37
+2. US-FREE#2 : 108.59.0.40
+3. JP-FREE#1 : 185.161.200.10
+4. JP-FREE#2 : 185.242.4.203
+5. JP-FREE#3 : 193.148.16.227
+6. NL-FREE#1 : 217.23.3.171
+7. NL-FREE#2 : 217.23.3.91

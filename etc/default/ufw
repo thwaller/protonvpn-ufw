@@ -1,0 +1,9 @@
+###
+# Portion to change
+###
+
+# Set to yes to apply rules to support IPv6 (no means only IPv6 on loopback
+# accepted). You will need to 'disable' and then 'enable' the firewall for
+# the changes to take affect.
+# IPV6=yes
+IPV6=no

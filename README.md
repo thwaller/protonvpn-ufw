@@ -15,7 +15,7 @@ This should also be valid for users who wish to use the VPN connections for Open
 
 forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
 
-### ProtonVPN IPs
+### ProtonVPN Enter and Exit IPs
 1. US-FREE#1 : 108.59.0.37
 2. US-FREE#2 : 108.59.0.40
 3. JP-FREE#1 : 185.161.200.10

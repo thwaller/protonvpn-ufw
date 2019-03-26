@@ -1,5 +1,20 @@
 #!/bin/bash
 
+#Status: active
+#     To                         Action      From
+#     --                         ------      ----
+#[ 1] 192.168.1.0/24             ALLOW OUT   Anywhere on wlo1           (out)
+#[ 2] Anywhere on wlo1           ALLOW IN    192.168.1.0/24            
+#[ 3] 224.0.0.0/4/udp            ALLOW OUT   Anywhere on wlo1           (out)
+#[ 4] Anywhere on wlo1           ALLOW IN    224.0.0.0/4/udp           
+#[ 5] 224.0.0.0/4/igmp           ALLOW OUT   Anywhere on wlo1           (out)
+#[ 6] Anywhere on wlo1           ALLOW IN    224.0.0.0/4/igmp          
+#[ 7] Anywhere                   ALLOW OUT   Anywhere on tun0           (out)
+#[ 8] Anywhere on tun0           DENY IN     Anywhere                  
+#[ 9] Anywhere                   DENY IN     192.168.1.173             
+
+# /var/log/ufw.log
+
 sudo ufw --force reset
 
 # deny all by default
@@ -13,10 +28,13 @@ sudo ufw allow out on wlo1 to 192.168.1.0/24
 sudo ufw allow in on wlo1 from 192.168.1.0/24
 
 # allow for multicasting
+# Addresses above 240.0.0.0 are not multicast
 # sudo ufw allow out proto udp to 224.0.0.0/4
 # sudo ufw allow in proto udp from 224.0.0.0/4
-sudo ufw allow out on wlo1 proto udp to 224.0.0.0/24
-sudo ufw allow in on wlo1 proto udp from 224.0.0.0/24
+sudo ufw allow out on wlo1 proto udp to 224.0.0.0/4
+sudo ufw allow in on wlo1 proto udp from 224.0.0.0/4
+sudo ufw allow out on wlo1 proto igmp to 224.0.0.0/4
+sudo ufw allow in on wlo1 proto igmp from 224.0.0.0/4
 
 # allow to IPs of VPN
 # This does NOT work, the intent is to allow connection to VPN
@@ -34,5 +52,8 @@ sudo ufw allow in on wlo1 proto udp from 224.0.0.0/24
 # sudo ufw deny in on tun0 from any to any
 sudo ufw allow out on tun0 to any
 sudo ufw deny in on tun0 from any
+
+# custom controls - user specific
+sudo ufw deny from 192.168.1.173
 
 sudo ufw enable

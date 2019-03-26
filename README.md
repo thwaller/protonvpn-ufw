@@ -40,3 +40,5 @@ The Linux cli for ProtonVPN can be referenced here: https://github.com/ProtonVPN
 2. /etc/default/ufw
 3. /etc/sysctl.conf
 
+# Credits
+All in /proton/ sourced directly from ProtonVPN (https://github.com/ProtonVPN). All other scripts sourced from random online resources and modified as needed to suit this project.

@@ -9,7 +9,7 @@ The Linux cli for ProtonVPN can be referenced here: https://github.com/ProtonVPN
 4. Default is all in and out denied
 
 ### Parts
-1. /ufw/ - Solution using ufw - forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
+1. /ufw/ - Current working/in-use solution using ufw - forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
 2. /proton/ - The function in ProtonVPN's cli script for the killswitch, which is currently disabled in the script. This can be used as a guide, but also needs consideration should Proton enable it within the cli script.
 3. /scripts/ - potential alternatives to the ufw solution.
 
@@ -33,7 +33,7 @@ The Linux cli for ProtonVPN can be referenced here: https://github.com/ProtonVPN
 ### To do
 1. Ideally this will be a more comprehensive management script. Until then, the core rules need to be set and tested
 2. Evaluate need to further restrict by interface (wlo, eth, etc), protocol and port
-3. Make sure that all DNS is routed properly, routes provides possibility there is a potential leak
+3. Make sure that all DNS is routed properly, routes shows possibility there is a potential leak
 
 ### Local Ubuntu files of interest for disabling IPv6
 1. /etc/ufw/sysctl.conf

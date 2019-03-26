@@ -2,7 +2,7 @@
 
 Script to enhance security (aka killswitch) whilst using ProtonVPN on Ubuntu 18.04.2 LTS. Should work on most Linux systems and most VPN services. Most VPN services include some sort of connection security, but many also prove to have leaks such as DNS and IPv6. When using OpenVPN with Linux, many VPNs do not come with a management application but rather just use settings that are manually entered into network-manager or a cli script to control. In addition to leaks, there is a security concern should the VPN connection drop as there is no visible indicator to show whether the VPN is on or off. So for additional security, should the VPN drop, so does the internet connectivity.
 
-The Linux for ProtonVPN can be referenced here: https://github.com/ProtonVPN. Intent is for the user to use the script protonvpn-cli script and incorporate a killswitch type profile to harden the connection.
+The Linux cli for ProtonVPN can be referenced here: https://github.com/ProtonVPN. Intent is for the user to use the script protonvpn-cli script and incorporate a killswitch type profile to harden the connection.
 1. IPv6 totally disabled to prevent leaks
 2. Local traffic allowed
 3. All traffic to WAN forced through VPN or blocked
@@ -11,6 +11,7 @@ The Linux for ProtonVPN can be referenced here: https://github.com/ProtonVPN. In
 ### Parts
 1. /ufw/ - Solution using ufw - forcevpn script file should be placed in your local bin and files within /etc/ changed appropriately in their matching locations.
 2. /proton/ - The function in ProtonVPN's cli script for the killswitch, which is currently disabled in the script. This can be used as a guide, but also needs consideration should Proton enable it within the cli script.
+3. /scripts/ - potential alternatives to the ufw solution.
 
 ### ProtonVPN Enter/Exit IPs
 1. US-FREE#1 : 108.59.0.37

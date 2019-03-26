@@ -7,8 +7,16 @@ sudo ufw default deny outgoing
 sudo ufw default deny incoming
 
 # allow local traffic
-sudo ufw allow out on wlo1 from 192.168.1.0/24 to 192.168.1.0/24
-sudo ufw allow in on wlo1 from 192.168.1.0/24 to 192.168.1.0/24
+# sudo ufw allow out on wlo1 from 192.168.1.0/24 to 192.168.1.0/24
+# sudo ufw allow in on wlo1 from 192.168.1.0/24 to 192.168.1.0/24
+sudo ufw allow out on wlo1 to 192.168.1.0/24
+sudo ufw allow in on wlo1 from 192.168.1.0/24
+
+# allow for multicasting
+# sudo ufw allow out proto udp to 224.0.0.0/4
+# sudo ufw allow in proto udp from 224.0.0.0/4
+sudo ufw allow out on wlo1 proto udp to 224.0.0.0/24
+sudo ufw allow in on wlo1 proto udp from 224.0.0.0/24
 
 # allow to IPs of VPN
 # This does NOT work, the intent is to allow connection to VPN
@@ -22,11 +30,9 @@ sudo ufw allow in on wlo1 from 192.168.1.0/24 to 192.168.1.0/24
 # sudo ufw allow out from any to 217.23.3.91
 
 # allow out only through tun interface
-sudo ufw allow out on tun0 from any to any
-sudo ufw allow out on tun1 from any to any
-
-# Although inherent I belive, specify
-sudo ufw deny in on tun0 from any to any
-sudo ufw deny in on tun1 from any to any
+# sudo ufw allow out on tun0 from any to any
+# sudo ufw deny in on tun0 from any to any
+sudo ufw allow out on tun0 to any
+sudo ufw deny in on tun0 from any
 
 sudo ufw enable
